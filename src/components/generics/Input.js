@@ -4,7 +4,7 @@ function Input(props) {
   const {
     type = "text",
     value,
-    required = true,
+    required = false,
     name,
     label,
     disabled,
@@ -15,7 +15,8 @@ function Input(props) {
   return (
     <div className="w-full flex flex-col items-end">
       <label className="flex items-center w-full justify-between capitalize text-left">
-        {label}{" "}
+        {label}
+        {": "}
         <div className="input-wrapper w-full max-w-64 flex justify-end rounded border-2 border-solid">
           <input
             type={type}

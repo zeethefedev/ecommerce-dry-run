@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartCard from "../components/cart/CartCard";
 import {
@@ -6,6 +6,7 @@ import {
   increaseProduct,
   removeProduct,
 } from "../store/cart.reducer";
+import ContactForm from "../components/cart/ContactForm";
 
 function MyCart() {
   const dispatch = useDispatch();
@@ -22,6 +23,15 @@ function MyCart() {
     dispatch(removeProduct(product));
   };
 
+  const [showContactForm, setShowContactForm] = useState(false);
+  const handleShowContactForm = () => {
+    setShowContactForm(true);
+  };
+
+  const handleCloseContactForm = () => {
+    setShowContactForm(false);
+  };
+
   return (
     <div>
       {productsInCart.map((prod) => (
@@ -32,6 +42,8 @@ function MyCart() {
           onRemove={() => handleRemove(prod)}
         />
       ))}
+      <button onClick={handleShowContactForm}>Check out</button>
+      {showContactForm && <ContactForm />}
     </div>
   );
 }
