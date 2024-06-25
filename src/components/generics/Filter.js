@@ -10,16 +10,16 @@ const toOptions = (optionsArray) => {
 };
 
 function Filter(props) {
-  const { filterTypes = ["beans", "origins", "roast"], onFilter } = props;
-  const handleFilter = (e) => {};
+  const { filter, onFilterStateChange, onFilter } = props;
 
   return (
     <div>
-      {filterTypes.map((type) => (
+      {Object.keys(filter).map((type) => (
         <Select
           label={type}
+          name={type}
           options={toOptions(DATA[type.toUpperCase()])}
-          onChange={handleFilter}
+          onChange={onFilterStateChange}
         />
       ))}
       <button onClick={onFilter}>Search</button>
