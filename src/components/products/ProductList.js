@@ -3,6 +3,8 @@ import { PRODUCTS } from "../../utils/testdata";
 import ProductCard from "../generics/ProductCard";
 import Search from "../generics/Search";
 import Filter from "../generics/Filter";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cart.reducer";
 
 const FILTERS = ["beans", "roast"];
 
@@ -45,6 +47,10 @@ function ProductList({ products = PRODUCTS }) {
     );
     setProductsState(filteredProducts);
   };
+  const dispatch = useDispatch();
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   return (
     <div>
@@ -56,7 +62,12 @@ function ProductList({ products = PRODUCTS }) {
       />
       <div className="flex justify-center gap-4">
         {productsState.map((prod) => (
-          <ProductCard product={prod} />
+          <ProductCard
+            product={prod}
+            onClickAddToCart={() => {
+              handleAddToCart(prod);
+            }}
+          />
         ))}
       </div>
     </div>

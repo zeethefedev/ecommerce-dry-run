@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductCard({ product, handleAddToCart }) {
+function ProductCard({ product, onClickAddToCart }) {
   return (
     <div className="flex flex-col border-2 border-black gap-2">
       {/* image */}
@@ -10,7 +10,7 @@ function ProductCard({ product, handleAddToCart }) {
         <div>{product.roast}</div>
         <div>{product.name}</div>
       </div>
-      <button onClick={handleAddToCart}>Add to cart</button>
+      <button onClick={onClickAddToCart}>Add to cart</button>
     </div>
   );
 }
