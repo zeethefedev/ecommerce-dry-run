@@ -15,11 +15,15 @@ const productsRef = collection(db, "products");
 const ordersRef = collection(db, "orders");
 // add data
 export const setData = async () => {
+  const types = ["Arabica", "Robusta", "Liberica", "Excelsa"];
+  const origins = ["Son La", "Kona", "Ethiopian", "Colombian"];
+  const roast = ["light", "medium", "dark"];
+
   await setDoc(doc(productsRef), {
-    name: "Robusta",
+    name: types[Math.floor(Math.random() * types.length)],
     description: "A delicious coffee product with a rich flavor and aroma.",
-    displayName: "Coffee 2 Robusta Son la",
-    roast: "dark",
+    displayName: origins[Math.floor(Math.random() * origins.length)],
+    roast: roast[Math.floor(Math.random() * origins.length)],
     stock: Math.floor(Math.random() * 100) + 1,
     price: Math.floor(Math.random() * 10) + 5,
     sale: Math.floor(Math.random() * 5),
