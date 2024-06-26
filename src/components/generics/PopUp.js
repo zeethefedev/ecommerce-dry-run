@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../../style/generics.css";
 
 function PopUp(props) {
   const { open, children } = props;

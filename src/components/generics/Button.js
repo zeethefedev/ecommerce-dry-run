@@ -1,4 +1,5 @@
 import React from "react";
+import "../../style/generics.css";
 
 function LoadingSpinner() {
   return <span className="loader m-auto"></span>;
