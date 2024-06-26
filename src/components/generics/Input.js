@@ -10,6 +10,7 @@ function Input(props) {
     disabled,
     placeholder,
     error,
+    errorMessage = "Please fill in this form",
     onChange,
   } = props;
   return (
@@ -29,7 +30,9 @@ function Input(props) {
           />
         </div>
       </label>
-      {error && <div className="text-right text-color-blue">{error}</div>}
+      {error && (
+        <div className="text-right text-color-blue">{errorMessage}</div>
+      )}
     </div>
   );
 }

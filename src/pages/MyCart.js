@@ -7,6 +7,7 @@ import {
   removeProduct,
 } from "../store/cart.reducer";
 import ContactForm from "../components/cart/ContactForm";
+import OrderSummary from "../components/cart/OrderSummary";
 
 function MyCart() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function MyCart() {
       ))}
       <button onClick={handleShowContactForm}>Check out</button>
       {showContactForm && <ContactForm />}
+      <OrderSummary products={productsInCart} />
     </div>
   );
 }
