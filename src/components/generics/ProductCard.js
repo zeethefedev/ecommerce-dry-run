@@ -29,6 +29,7 @@ function ProductCard({ product, onClickAddToCart }) {
         {/* image */}
         <div>
           {/* <div>{product.displayName}</div> */}
+          <img src={product.thumbnail} alt="" />
           <div>{product.price}</div>
           <div>{product.roast}</div>
           <div>{product.name}</div>

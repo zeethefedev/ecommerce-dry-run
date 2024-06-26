@@ -13,6 +13,8 @@ export const PRODUCTS = [
     roast: "dark",
     displayName: "Coffee 2",
     featureProduct: true,
+    thumbnail:
+      "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Fdang-cong-JqF4IS65xEg-unsplash.jpg?alt=media&token=35c1ffc6-5575-4db1-918c-9f6f639cb7e8",
   },
   {
     id: 1,
@@ -24,6 +26,8 @@ export const PRODUCTS = [
     price: 11,
     displayName: "Coffee 2 Robusta Son la",
     featureProduct: true,
+    thumbnail:
+      "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Fanastasiia-chepinska-lcfH0p6emhw-unsplash.jpg?alt=media&token=7e96a3e0-45fc-4997-8af4-ebfc5af8ee54",
   },
   {
     id: 2,
@@ -35,6 +39,8 @@ export const PRODUCTS = [
     displayName: "Son La",
     price: 11,
     featureProduct: false,
+    thumbnail:
+      "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Felias-sorey-D29l4vh2FZA-unsplash.jpg?alt=media&token=456df077-17b9-4eca-ba0c-fb5f0b0f1ae6",
   },
   {
     id: 3,
@@ -46,6 +52,8 @@ export const PRODUCTS = [
     name: "Liberica",
     description: "A delicious coffee product with a rich flavor and aroma.",
     featureProduct: true,
+    thumbnail:
+      "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Flukasz-rawa-fmc-tFMMiBs-unsplash.jpg?alt=media&token=92557b8d-9036-41ea-93b4-507b0d23e01d",
   },
   {
     id: 4,
@@ -57,6 +65,8 @@ export const PRODUCTS = [
     displayName: "Kona",
     stock: 21,
     featureProduct: false,
+    thumbnail:
+      "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Fmike-kenneally-TD4DBagg2wE-unsplash.jpg?alt=media&token=124a82ae-1f33-49db-bf78-16be633da9d2",
   },
 ];
 

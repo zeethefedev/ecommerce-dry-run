@@ -1,4 +1,5 @@
-import { app } from "./firebase";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { app, storage } from "./firebase";
 import {
   getFirestore,
   collection,
@@ -65,4 +66,21 @@ export const updateData = async () => {
     price: Math.floor(Math.random() * 10) + 5,
     sale: Math.floor(Math.random() * 5),
   });
+};
+
+const imagesRef = ref(storage, "products-images");
+export const getAllImages = () => {
+  // Find all the prefixes and items.
+  listAll(imagesRef)
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        // All the items under listRef.
+        getDownloadURL(ref(storage, itemRef.fullPath)).then((url) => {
+          console.log(url);
+        });
+      });
+    })
+    .catch((error) => {
+      // Uh-oh, an error occurred!
+    });
 };
