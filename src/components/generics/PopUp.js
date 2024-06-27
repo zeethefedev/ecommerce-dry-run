@@ -15,7 +15,7 @@ function PopUp(props) {
   return (
     <div>
       {open && (
-        <div className="overlay-wrapper" style={{ top: window.scrollY }}>
+        <div className="overlay-wrapper">
           <div className="overlay">
             <div className="overlay-content">{children}</div>
           </div>

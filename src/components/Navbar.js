@@ -5,9 +5,13 @@ const PAGES = ["home", "about", "products", "cart"];
 
 function Navbar() {
   return (
-    <div>
+    <div className="flex justify-end">
       {PAGES.map((page) => (
-        <Link to={`/${page}`}>{page}</Link>
+        <div className="mx-4 uppercase">
+          <Link className="button-text" to={`/${page}`}>
+            {page}
+          </Link>
+        </div>
       ))}
     </div>
   );

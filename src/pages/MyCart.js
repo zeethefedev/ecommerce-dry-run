@@ -26,7 +26,8 @@ function MyCart() {
 
   const [showContactForm, setShowContactForm] = useState(false);
   const handleShowContactForm = () => {
-    setShowContactForm(true);
+    setShowContactForm(!showContactForm);
+    // setShowContactForm(true);
   };
 
   const handleCloseContactForm = () => {
@@ -34,18 +35,27 @@ function MyCart() {
   };
 
   return (
-    <div>
-      {productsInCart.map((prod) => (
-        <CartCard
-          product={prod}
-          onIncrease={() => handleIncrease(prod)}
-          onDecrease={() => handleDecrease(prod)}
-          onRemove={() => handleRemove(prod)}
-        />
-      ))}
-      <button onClick={handleShowContactForm}>Check out</button>
-      {showContactForm && <ContactForm />}
-      <OrderSummary products={productsInCart} />
+    <div className="grid grid-cols-3 gap-4">
+      <div className="col-span-2">
+        {showContactForm ? (
+          <ContactForm />
+        ) : (
+          <>
+            {productsInCart.map((prod) => (
+              <CartCard
+                product={prod}
+                onIncrease={() => handleIncrease(prod)}
+                onDecrease={() => handleDecrease(prod)}
+                onRemove={() => handleRemove(prod)}
+              />
+            ))}
+          </>
+        )}
+      </div>
+      <div>
+        <OrderSummary products={productsInCart} />
+        <button onClick={handleShowContactForm}>Check out</button>
+      </div>
     </div>
   );
 }

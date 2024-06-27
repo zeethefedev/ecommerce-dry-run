@@ -17,6 +17,7 @@ body {
   --bg-caramel: #d9ae71;
   --bg-brown: #40372a;
   @apply font-Barlow;
+  font-size: 18px;
 }
 
 code {
@@ -48,25 +49,36 @@ textarea,
 option,
 ul {
   border-radius: 4px;
-  border: 2px black solid;
+  border: 2px var(--text-black) solid;
   padding: 8px;
   outline: 0px;
+  background-color: var(--text-caramel);
+  color: var(--text-black);
+  width: 100%;
+  max-width: 250px;
 }
 
 .input-wrapper {
   transition: all 0.1s ease-in-out;
   border-radius: 4px;
-  border: 2px var(--dark-blue) solid;
+  border: 2px var(--text-black) solid;
 }
 
 button {
-  font-size: 16px;
-  line-height: 16px;
-  font-weight: 800;
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 600;
   max-width: 250px;
   min-height: 36px;
   border-radius: 4px;
-  border: 2px var(--dark-blue) solid;
+  background-color: var(--text-caramel);
+  color: var(--text-black);
+}
+
+.button-text {
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 600;
 }
 
 input {
@@ -142,4 +154,30 @@ form {
 
 .text-color-red {
   color: var(--hot-pink);
+}
+
+h1 {
+  font-size: 96px;
+  line-height: 110%;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 64px;
+  line-height: 120%;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 40px;
+  line-height: 120%;
+  font-weight: 600;
+}
+
+.body-2 {
+  /* font-family: "Montserrat"; */
+  font-size: 16px;
+  line-height: 140%;
+  @apply font-Montserrat;
 }

@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       Barlow: ["Barlow Semi Condensed", "sans-serif"],
+      Montserrat: ["Montserrat", "sans-serif"],
     },
     extend: {},
   },

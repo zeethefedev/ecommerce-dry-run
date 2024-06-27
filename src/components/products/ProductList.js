@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PRODUCTS } from "../../utils/testdata";
-import ProductCard from "../generics/ProductCard";
-import Search from "../generics/Search";
+import Card from "../generics/Card";
+// import Search from "../generics/Search";
 import Filter from "../generics/Filter";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart.reducer";
@@ -60,11 +60,12 @@ function ProductList({ products = PRODUCTS }) {
         onFilterStateChange={handleFilterStateChange}
         onFilter={handleFilter}
       />
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center gap-4 flex-wrap">
         {productsState.map((prod) => (
-          <ProductCard
-            product={prod}
-            onClickAddToCart={() => {
+          <Card
+            mode="product"
+            item={prod}
+            onClickButton={() => {
               handleAddToCart(prod);
             }}
           />
