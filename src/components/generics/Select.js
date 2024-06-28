@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Select(props) {
   const { options, label, onChange, name = "select" } = props;
+  const [labelFocused, setLabelFocus] = useState(false);
+
+  const handleCloseLableFocus = (e) => {
+    if (!e.target.value) {
+      setLabelFocus(false);
+    }
+  };
 
   return (
-    <>
-      <label className="flex items-center w-full capitalize text-left">
-        {label}{" "}
-        <select name={name} onChange={onChange}>
+    <div className="m-4 max-w-64 flex flex-col">
+      <div className="input-container w-full flex rounded">
+        <select
+          className="input-field"
+          name={name}
+          onFocus={() => setLabelFocus(true)}
+          onBlur={handleCloseLableFocus}
+          onChange={onChange}
+        >
           <>
             <option value=""></option>
             {options.map((option) => (
@@ -15,8 +27,14 @@ function Select(props) {
             ))}
           </>
         </select>
-      </label>
-    </>
+        <label
+          className={`input-label capitalize ${labelFocused ? "focused" : ""}`}
+          for="custom-input"
+        >
+          {label}
+        </label>
+      </div>
+    </div>
   );
 }
 

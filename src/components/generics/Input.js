@@ -16,8 +16,8 @@ function Input(props) {
 
   const [labelFocused, setLabelFocus] = useState(false);
   return (
-    <>
-      <div className="input-container w-full max-w-64 flex justify-end rounded">
+    <div className="m-4 max-w-64 flex flex-col">
+      <div className="input-container w-full flex rounded">
         <input
           id="custom-input"
           className="input-field"
@@ -38,13 +38,12 @@ function Input(props) {
           for="custom-input"
         >
           {label}
-          {": "}
         </label>
       </div>
       {error && (
         <div className="text-right text-color-blue">{errorMessage}</div>
       )}
-    </>
+    </div>
   );
 }
 

@@ -178,7 +178,7 @@ h3 {
 
 .input-container {
   position: relative;
-  margin: 20px;
+  margin-bottom: 4px;
 }
 
 .input-field {
@@ -192,8 +192,8 @@ h3 {
 
 .input-label {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 8px;
+  left: 8px;
   font-size: 16px;
   color: #999;
   transition: transform 0.2s ease-in-out;
@@ -201,6 +201,6 @@ h3 {
 }
 
 .input-label.focused {
-  transform: translateY(-20px) scale(0.5);
+  transform: translateY(-20px) scale(0.9);
   color: #333;
 }
