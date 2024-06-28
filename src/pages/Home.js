@@ -1,9 +1,9 @@
 import React from "react";
 import { POSTS, PRODUCTS } from "../utils/testdata";
-import Card from "../components/generics/Card";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart.reducer";
-import Input from "../components/generics/Input";
+import PostCard from "../components/home/PostCard";
+import ProductCard from "../components/products/ProductCard";
 
 function Home() {
   return (
@@ -13,12 +13,11 @@ function Home() {
         <h1>Welcome to Ecommerce Dry Run</h1>
         {/* button scroll to the value session */}
         <button>Get to know us</button>
-        <Input label="my input" />
       </div>
       {/* about */}
-      {/* <AboutSession /> */}
+      <AboutSession />
       {/* menu */}
-      {/* <ProductSession /> */}
+      <ProductSession />
       {/* contact */}
     </div>
   );
@@ -28,7 +27,7 @@ function AboutSession() {
   return (
     <div className="flex justify-center gap-4 flex-wrap">
       {POSTS.map((post) => (
-        <Card item={post} />
+        <PostCard item={post} />
       ))}
     </div>
   );
@@ -43,8 +42,7 @@ function ProductSession({ products = PRODUCTS }) {
   return (
     <div className="flex justify-center gap-4 flex-wrap">
       {featureProducts.map((prod) => (
-        <Card
-          mode="product"
+        <ProductCard
           item={prod}
           onClickButton={() => {
             handleAddToCart(prod);
