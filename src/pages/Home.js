@@ -3,6 +3,7 @@ import { POSTS, PRODUCTS } from "../utils/testdata";
 import Card from "../components/generics/Card";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart.reducer";
+import Input from "../components/generics/Input";
 
 function Home() {
   return (
@@ -12,11 +13,12 @@ function Home() {
         <h1>Welcome to Ecommerce Dry Run</h1>
         {/* button scroll to the value session */}
         <button>Get to know us</button>
+        <Input label="my input" />
       </div>
       {/* about */}
-      <AboutSession />
+      {/* <AboutSession /> */}
       {/* menu */}
-      <ProductSession />
+      {/* <ProductSession /> */}
       {/* contact */}
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Input(props) {
   const {
@@ -13,27 +13,38 @@ function Input(props) {
     errorMessage = "Please fill in this form",
     onChange,
   } = props;
+
+  const [labelFocused, setLabelFocus] = useState(false);
   return (
-    <div className="w-full flex flex-col items-end">
-      <label className="flex items-center w-full justify-between capitalize text-left">
-        {label}
-        {": "}
-        <div className="input-wrapper w-full max-w-64 flex justify-end rounded border-2 border-solid">
-          <input
-            type={type}
-            required={required}
-            name={name}
-            value={value}
-            disabled={disabled}
-            placeholder={placeholder}
-            onChange={onChange}
-          />
-        </div>
-      </label>
+    <>
+      <div className="input-container w-full max-w-64 flex justify-end rounded">
+        <input
+          id="custom-input"
+          className="input-field"
+          type={type}
+          required={required}
+          name={name}
+          value={value}
+          disabled={disabled}
+          placeholder={placeholder}
+          onFocus={() => setLabelFocus(true)}
+          onBlur={() => setLabelFocus(false)}
+          onChange={onChange}
+        />
+        <label
+          className={`input-label capitalize ${
+            labelFocused || value ? "focused" : ""
+          }`}
+          for="custom-input"
+        >
+          {label}
+          {": "}
+        </label>
+      </div>
       {error && (
         <div className="text-right text-color-blue">{errorMessage}</div>
       )}
-    </div>
+    </>
   );
 }
 
