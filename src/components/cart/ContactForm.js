@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "../generics/Input";
 import Button from "../generics/Button";
+import CardTemplate from "../generics/CardTemplate";
 
 const FIELDS = ["name", "address", "email", "note"];
 const toObject = (fieldArray) => {
@@ -45,21 +46,24 @@ function ContactForm({ customer }) {
   };
 
   return (
-    <form>
-      {contactFields.map((field) => (
-        <Input
-          label={field.name}
-          name={field.name}
-          value={field.value}
-          type={field.name === "email" ? "email" : "text"}
-          onChange={handleInputChange}
-          error={!field.value && field.touched}
-        />
-      ))}
-      <Button variant="primary" onClick={handlePlaceOrder}>
-        Place Order
-      </Button>
-    </form>
+    <CardTemplate cardClass="max-w-none">
+      <h3 className="text-left">Payment</h3>
+      <form>
+        {contactFields.map((field) => (
+          <Input
+            label={field.name}
+            name={field.name}
+            value={field.value}
+            type={field.name === "email" ? "email" : "text"}
+            onChange={handleInputChange}
+            error={!field.value && field.touched}
+          />
+        ))}
+        <Button variant="primary" onClick={handlePlaceOrder}>
+          Place Order
+        </Button>
+      </form>
+    </CardTemplate>
   );
 }
 

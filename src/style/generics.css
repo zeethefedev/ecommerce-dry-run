@@ -61,3 +61,8 @@
   background-color: var(--bg-brown);
   color: var(--text-white);
 }
+
+.card-light {
+  background-color: var(--bg-caramel-light);
+  color: var(--text-black);
+}

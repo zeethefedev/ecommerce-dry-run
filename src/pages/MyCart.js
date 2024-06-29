@@ -53,9 +53,14 @@ function MyCart() {
           </>
         )}
       </div>
-      <div>
+      <div className="card-light flex flex-col items-center justify-between gap-2 px-5 py-6 h-[60vh]">
+        <h2>Summary</h2>
         <OrderSummary products={productsInCart} />
-        <Button variant="primary" onClick={handleShowContactForm}>
+        <Button
+          variant="primary"
+          onClick={handleShowContactForm}
+          className="flex items-center justify-center"
+        >
           Check out
         </Button>
       </div>

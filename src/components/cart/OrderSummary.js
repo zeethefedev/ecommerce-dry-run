@@ -6,7 +6,7 @@ function OrderSummary({ customer, products }) {
     .reduce((total, currentValue) => total + currentValue, 0);
 
   return (
-    <div>
+    <div className="h-full">
       <div>Total: {totalPrice}</div>
       <div>Promo code: </div>
       <div>Shipping: </div>
