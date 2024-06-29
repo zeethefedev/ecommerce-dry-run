@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import CardTemplate from "../generics/CardTemplate";
+import SVGIcon from "../generics/SVGIcon";
 
-function PopupContent({ item, onCloseButtonClick, onCTAButtonClick }) {
+function PopupContent({ item, onCTAButtonClick }) {
+  const { displayName, description, roast, thumbnail } = item;
   return (
-    <div>
-      <div>{item.displayName}</div>
-      <button onClick={onCloseButtonClick}>Close</button>
-      <button onClick={onCTAButtonClick}>Add to cart</button>
+    <div className="grid grid-cols-2 gap-4">
+      <img src={thumbnail} alt="" />
+      <div>
+        <h3>{displayName}</h3>
+        <div>{description}</div>
+        <button onClick={onCTAButtonClick}>
+          <SVGIcon icon="plus" />
+          Add to cart
+        </button>
+      </div>
     </div>
   );
 }
@@ -22,15 +30,13 @@ function ProductCard({ item, onClickButton }) {
   const handleClosePopup = () => {
     setOpenPopup(false);
   };
+
   return (
     <CardTemplate
       openPopup={openPopup}
+      handleClosePopup={handleClosePopup}
       popupContent={
-        <PopupContent
-          item={current}
-          onCloseButtonClick={handleClosePopup}
-          onCTAButtonClick={onClickButton}
-        />
+        <PopupContent item={current} onCTAButtonClick={onClickButton} />
       }
     >
       <div>
@@ -40,11 +46,15 @@ function ProductCard({ item, onClickButton }) {
           alt=""
           onClick={handleOpenPopup}
         />
-        <div>{item.price}</div>
-        <div>{item.roast}</div>
-        <div>{item.name}</div>
+        <div className="flex justify-between">
+          <div>{item.displayName}</div>
+          {/* <div>{item.price}</div> */}
+          {/* <div>{item.roast}</div> */}
+          <button className="w-auto" onClick={onClickButton}>
+            <SVGIcon icon="plus" />
+          </button>
+        </div>
       </div>
-      <button onClick={onClickButton}>Add to cart</button>
     </CardTemplate>
   );
 }

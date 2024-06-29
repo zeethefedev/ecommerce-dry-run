@@ -38,6 +38,9 @@
   padding: 44px;
   box-shadow: 2px 2px black;
   transform: translate(-2px, -2px);
+  border: 2px solid var(--light-caramel);
+  background-color: var(--bg-brown);
+  color: var(--text-white);
 }
 
 .overlay-content {
@@ -51,4 +54,10 @@
 
 .clickable {
   cursor: pointer;
+}
+
+.card {
+  border: 2px solid var(--light-caramel);
+  background-color: var(--bg-brown);
+  color: var(--text-white);
 }

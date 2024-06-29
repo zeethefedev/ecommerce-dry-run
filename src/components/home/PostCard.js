@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import CardTemplate from "../generics/CardTemplate";
 
-function PopupContent({ item, onCloseButtonClick }) {
+function PopupContent({ item }) {
+  const { heading, content, thumbnail } = item;
   return (
-    <div>
-      <div>{item.displayName}</div>
-      <button onClick={onCloseButtonClick}>Close</button>
+    <div className="grid grid-cols-2">
+      <img src={thumbnail} alt="" />
+      <div>
+        <h2>{heading}</h2>
+        <div>{content}</div>
+      </div>
     </div>
   );
 }
@@ -24,12 +28,12 @@ function PostCard({ item }) {
   return (
     <CardTemplate
       openPopup={openPopup}
-      popupContent={
-        <PopupContent item={current} onCloseButtonClick={handleClosePopup} />
-      }
+      handleClosePopup={handleClosePopup}
+      popupContent={<PopupContent item={current} />}
+      cardClass="flex flex-col justify-between"
     >
-      <div>{item.title}</div>
-      <div>{item.preview}</div>
+      <h3 className="text-left">{item.title}</h3>
+      <div className="text-left">{item.preview}</div>
       <button onClick={handleOpenPopup}>Learn more</button>
     </CardTemplate>
   );

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../../style/generics.css";
 
 function PopUp(props) {
-  const { open, children } = props;
+  const { open, children, handleClosePopup } = props;
   const body = document.getElementsByTagName("body");
 
   useEffect(() => {
@@ -17,6 +17,7 @@ function PopUp(props) {
       {open && (
         <div className="overlay-wrapper">
           <div className="overlay">
+            <button onClick={handleClosePopup}>Close</button>
             <div className="overlay-content">{children}</div>
           </div>
         </div>

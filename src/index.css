@@ -13,7 +13,7 @@ body {
   --overlay: rgba(0, 0, 0, 0.5);
   --text-black: #40372a;
   --text-white: #ebebeb;
-  --text-caramel: #f0dec5;
+  --light-caramel: #f0dec5;
   --bg-caramel: #d9ae71;
   --bg-brown: #40372a;
   @apply font-Barlow;
@@ -52,7 +52,7 @@ ul {
   border: 2px var(--text-black) solid;
   padding: 8px;
   outline: 0px;
-  background-color: var(--text-caramel);
+  background-color: var(--light-caramel);
   color: var(--text-black);
   width: 100%;
   max-width: 250px;
@@ -65,7 +65,7 @@ button {
   max-width: 250px;
   min-height: 36px;
   border-radius: 4px;
-  background-color: var(--text-caramel);
+  background-color: var(--light-caramel);
   color: var(--text-black);
 }
 
