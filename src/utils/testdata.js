@@ -131,3 +131,18 @@ We'll cover the pros and cons of each framework, as well as some of the most com
   // We'll cover some of the most popular tools and resources, as well as some hidden gems that can help take your JavaScript development to the next level.`,
   //   },
 ];
+
+export const CONTACTS = [
+  {
+    name: "Facebook",
+    description: "Follow me on Facebook",
+    link: "https://www.facebook.com/yourusername",
+  },
+  {
+    name: "Instagram",
+    description: "Tweet me on Twitter",
+    link: "https://www.twitter.com/yourusername",
+  },
+  { name: "Phone", description: "555-123-4567", link: "" },
+  { name: "Location", description: "123 Main St, Anytown, CA 12345", link: "" },
+];

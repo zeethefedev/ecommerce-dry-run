@@ -1,5 +1,11 @@
 import React from "react";
-import { POSTS, POST_MAIN, PRODUCTS, SAMPLE_TEXT } from "../utils/testdata";
+import {
+  CONTACTS,
+  POSTS,
+  POST_MAIN,
+  PRODUCTS,
+  SAMPLE_TEXT,
+} from "../utils/testdata";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart.reducer";
 import PostCard from "../components/home/PostCard";
@@ -7,6 +13,8 @@ import ProductCard from "../components/products/ProductCard";
 import SVGIcon from "../components/generics/SVGIcon";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/generics/Button";
+import CardTemplate from "../components/generics/CardTemplate";
+import ContactCard from "../components/home/ContactCard";
 
 function Home() {
   return (
@@ -17,7 +25,7 @@ function Home() {
         {/* button scroll to the value session */}
         <Button variant="primary" className="icon-button">
           Get to know us
-          <SVGIcon icon="arrow-right" viewBox="0 0 24 24" />
+          <SVGIcon icon="arrow-right" />
         </Button>
       </div>
       {/* about */}
@@ -29,6 +37,7 @@ function Home() {
         <ProductSession />
       </div>
       {/* contact */}
+      <ContactSession />
     </div>
   );
 }
@@ -80,6 +89,19 @@ function ProductSession({ products = PRODUCTS }) {
       </div>
       <Button onClick={handleNavigate}>See all products</Button>
     </>
+  );
+}
+
+function ContactSession() {
+  return (
+    <div>
+      <h1>Contact us</h1>
+      <div className="flex justify-center gap-4 flex-wrap">
+        {CONTACTS.map((contact) => (
+          <ContactCard item={contact} />
+        ))}
+      </div>
+    </div>
   );
 }
 

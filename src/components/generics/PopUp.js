@@ -20,7 +20,7 @@ function PopUp(props) {
         <div className="overlay-wrapper">
           <div className="overlay">
             <Button className="w-auto" onClick={handleClosePopup}>
-              <SVGIcon viewBox="0 0 512 512" icon="close" />
+              <SVGIcon icon="close" />
             </Button>
             <div className="overlay-content">{children}</div>
           </div>
