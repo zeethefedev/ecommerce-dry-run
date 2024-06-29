@@ -13,8 +13,12 @@ body {
   --overlay: rgba(0, 0, 0, 0.5);
   --text-black: #40372a;
   --text-white: #ebebeb;
-  --light-caramel: #f0dec5;
+  --caramel: #f0dec5;
+  --caramel-cast: #f0dec582;
+  --light-caramel: #d4c4ae;
   --bg-caramel: #d9ae71;
+  --bg-caramel-dark: #99743f;
+  --bg-caramel-light: #f0ebe4;
   --bg-brown: #40372a;
   @apply font-Barlow;
   font-size: 18px;
@@ -40,7 +44,6 @@ ul {
   transition: all 0.1s ease-in-out;
 }
 
-button,
 fieldset,
 input,
 legend,
@@ -52,7 +55,7 @@ ul {
   border: 2px var(--text-black) solid;
   padding: 8px;
   outline: 0px;
-  background-color: var(--light-caramel);
+  background-color: var(--caramel);
   color: var(--text-black);
   width: 100%;
   max-width: 250px;
@@ -65,7 +68,10 @@ button {
   max-width: 250px;
   min-height: 36px;
   border-radius: 4px;
-  background-color: var(--light-caramel);
+  padding: 8px;
+  outline: 0px;
+  width: 100%;
+  max-width: 250px;
   color: var(--text-black);
 }
 
@@ -91,37 +97,48 @@ button:focus,
 }
 
 .primary-button {
-  background-color: var(--main-blue);
-  color: white;
+  background-color: var(--bg-caramel);
+  color: var(--text-white);
+}
+
+.primary-button:hover,
+.primary-button:focus {
+  background-color: var(--bg-caramel-dark);
+}
+
+.primary-button:disabled {
+  background-color: var(--bg-caramel-light);
+  color: var(--light-caramel);
 }
 
 .secondary-button {
-  background-color: var(--background);
-  color: var(--dark-blue);
+  background-color: transparent;
+  border: 2px solid var(--caramel);
+  color: var(--caramel);
 }
 
-.icon-button,
 .tetriary-button {
   border: none;
 }
 
-.tetriary-button {
-  font-weight: 400;
-  color: var(--text-blue);
-}
-
-.icon-button:hover,
-.icon-button:focus,
+.secondary-button:hover,
+.secondary-button:focus,
 .tetriary-button:hover,
 .tetriary-button:focus {
-  transform: none;
-  box-shadow: none;
+  background-color: var(--caramel-cast);
 }
 
-button:disabled,
-input:disabled {
-  box-shadow: none;
-  transform: none;
+.secondary-button:disabled {
+  border: 2px solid var(--bg-caramel-light);
+  color: var(--light-caramel);
+}
+
+.tetriary-button:disabled {
+  color: var(--light-caramel);
+}
+
+.icon-button {
+  @apply flex items-end justify-center gap-2;
 }
 
 button:disabled {

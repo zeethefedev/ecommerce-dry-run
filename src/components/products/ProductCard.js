@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CardTemplate from "../generics/CardTemplate";
 import SVGIcon from "../generics/SVGIcon";
+import Button from "../generics/Button";
 
 function PopupContent({ item, onCTAButtonClick }) {
   const { displayName, description, roast, thumbnail } = item;
@@ -10,10 +11,10 @@ function PopupContent({ item, onCTAButtonClick }) {
       <div>
         <h3>{displayName}</h3>
         <div>{description}</div>
-        <button onClick={onCTAButtonClick}>
+        <Button onClick={onCTAButtonClick} className="icon-button">
           <SVGIcon icon="plus" />
           Add to cart
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -50,9 +51,9 @@ function ProductCard({ item, onClickButton }) {
           <div>{item.displayName}</div>
           {/* <div>{item.price}</div> */}
           {/* <div>{item.roast}</div> */}
-          <button className="w-auto" onClick={onClickButton}>
+          <Button className="w-auto" onClick={onClickButton}>
             <SVGIcon icon="plus" />
-          </button>
+          </Button>
         </div>
       </div>
     </CardTemplate>

@@ -8,6 +8,7 @@ import {
 } from "../store/cart.reducer";
 import ContactForm from "../components/cart/ContactForm";
 import OrderSummary from "../components/cart/OrderSummary";
+import Button from "../components/generics/Button";
 
 function MyCart() {
   const dispatch = useDispatch();
@@ -54,7 +55,9 @@ function MyCart() {
       </div>
       <div>
         <OrderSummary products={productsInCart} />
-        <button onClick={handleShowContactForm}>Check out</button>
+        <Button variant="primary" onClick={handleShowContactForm}>
+          Check out
+        </Button>
       </div>
     </div>
   );

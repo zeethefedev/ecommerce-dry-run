@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "../../style/generics.css";
+import SVGIcon from "./SVGIcon";
+import Button from "./Button";
 
 function PopUp(props) {
   const { open, children, handleClosePopup } = props;
@@ -17,7 +19,9 @@ function PopUp(props) {
       {open && (
         <div className="overlay-wrapper">
           <div className="overlay">
-            <button onClick={handleClosePopup}>Close</button>
+            <Button className="w-auto" onClick={handleClosePopup}>
+              <SVGIcon viewBox="0 0 512 512" icon="close" />
+            </Button>
             <div className="overlay-content">{children}</div>
           </div>
         </div>

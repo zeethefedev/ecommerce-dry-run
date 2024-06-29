@@ -6,6 +6,7 @@ import PostCard from "../components/home/PostCard";
 import ProductCard from "../components/products/ProductCard";
 import SVGIcon from "../components/generics/SVGIcon";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/generics/Button";
 
 function Home() {
   return (
@@ -14,10 +15,10 @@ function Home() {
       <div className="min-h-screen">
         <h1 className="text-left max-w-3xl">Welcome to Ecommerce Dry Run</h1>
         {/* button scroll to the value session */}
-        <button className="flex items-end justify-center gap-2">
+        <Button variant="primary" className="icon-button">
           Get to know us
-          <SVGIcon icon="arrow-right" fill="#40372a" viewBox="0 0 24 24" />
-        </button>
+          <SVGIcon icon="arrow-right" viewBox="0 0 24 24" />
+        </Button>
       </div>
       {/* about */}
       <div className="min-h-screen">
@@ -77,7 +78,7 @@ function ProductSession({ products = PRODUCTS }) {
           />
         ))}
       </div>
-      <button onClick={handleNavigate}>See all products</button>
+      <Button onClick={handleNavigate}>See all products</Button>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "./Select";
 import * as DATA from "../../utils/testdata";
+import Button from "./Button";
 
 const toOptions = (optionsArray) => {
   return optionsArray.map((option) => ({
@@ -22,7 +23,7 @@ function Filter(props) {
           onChange={onFilterStateChange}
         />
       ))}
-      <button onClick={onFilter}>Search</button>
+      <Button onClick={onFilter}>Search</Button>
     </div>
   );
 }

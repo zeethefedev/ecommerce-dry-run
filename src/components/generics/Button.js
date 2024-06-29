@@ -6,7 +6,15 @@ function LoadingSpinner() {
 }
 
 function Button(props) {
-  const { state, className, variant, children, onClick, disabled } = props;
+  const {
+    state,
+    className,
+    variant = "secondary",
+    children,
+    onClick,
+    disabled,
+  } = props;
+  // flex items-end justify-center gap-2
   return (
     <button
       className={`${variant}-button ${className}`}

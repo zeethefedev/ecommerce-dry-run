@@ -1,5 +1,6 @@
 import React from "react";
 import SVGIcon from "../generics/SVGIcon";
+import Button from "../generics/Button";
 
 function CartCard({ product, onIncrease, onDecrease, onRemove }) {
   return (
@@ -15,14 +16,14 @@ function CartCard({ product, onIncrease, onDecrease, onRemove }) {
         <div>{product.roast}</div>
       </div>
       <div className="flex items-center">
-        <button onClick={onDecrease}>
+        <Button onClick={onDecrease} variant="tetriary">
           <SVGIcon icon="minus" />
-        </button>
+        </Button>
         <div>{product.quantity}</div>
-        <button onClick={onIncrease}>
+        <Button onClick={onIncrease} variant="tetriary">
           <SVGIcon icon="plus" />
-        </button>
-        {/* <button onClick={onRemove}>Remove</button> */}
+        </Button>
+        {/* <Button onClick={onRemove}>Remove</Button> */}
       </div>
       <div>{product.price}</div>
     </div>

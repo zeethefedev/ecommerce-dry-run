@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "../generics/Input";
+import Button from "../generics/Button";
 
 const FIELDS = ["name", "address", "email", "note"];
 const toObject = (fieldArray) => {
@@ -55,7 +56,9 @@ function ContactForm({ customer }) {
           error={!field.value && field.touched}
         />
       ))}
-      <button onClick={handlePlaceOrder}>Place Order</button>
+      <Button variant="primary" onClick={handlePlaceOrder}>
+        Place Order
+      </Button>
     </form>
   );
 }

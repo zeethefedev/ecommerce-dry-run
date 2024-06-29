@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CardTemplate from "../generics/CardTemplate";
+import Button from "../generics/Button";
 
 function PopupContent({ item }) {
   const { heading, content, thumbnail } = item;
@@ -34,7 +35,7 @@ function PostCard({ item }) {
     >
       <h3 className="text-left">{item.title}</h3>
       <div className="text-left">{item.preview}</div>
-      <button onClick={handleOpenPopup}>Learn more</button>
+      <Button onClick={handleOpenPopup}>Learn more</Button>
     </CardTemplate>
   );
 }

@@ -38,7 +38,7 @@
   padding: 44px;
   box-shadow: 2px 2px black;
   transform: translate(-2px, -2px);
-  border: 2px solid var(--light-caramel);
+  border: 2px solid var(--caramel);
   background-color: var(--bg-brown);
   color: var(--text-white);
 }
@@ -57,7 +57,7 @@
 }
 
 .card {
-  border: 2px solid var(--light-caramel);
+  border: 2px solid var(--caramel);
   background-color: var(--bg-brown);
   color: var(--text-white);
 }
