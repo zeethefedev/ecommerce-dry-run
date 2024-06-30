@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   CONTACTS,
   POSTS,
@@ -9,11 +9,19 @@ import {
 import PostCard from "../components/home/PostCard";
 import ProductCard from "../components/products/ProductCard";
 import SVGIcon from "../components/generics/SVGIcon";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../components/generics/Button";
 import ContactCard from "../components/home/ContactCard";
 
 function Home() {
+  const location = useLocation();
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.replace("#", ""));
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
   return (
     <div>
       {/* landing */}
@@ -26,11 +34,11 @@ function Home() {
         </Button>
       </div>
       {/* about */}
-      <div className="min-h-screen">
+      <div id="about" className="min-h-screen">
         <AboutSession />
       </div>
       {/* menu */}
-      <div className="min-h-screen">
+      <div id="products" className="min-h-screen">
         <ProductSession />
       </div>
       {/* contact */}
