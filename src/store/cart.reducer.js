@@ -5,13 +5,25 @@ import { updateQuantity } from "../utils/method.reducer";
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    products: PRODUCTS.map((prod) => ({ ...prod, quantity: 0 })),
+    products: PRODUCTS.map((prod) => ({
+      ...prod,
+      quantity: 0,
+      chosenRoast: "",
+    })),
     productsInCart: [],
   },
   reducers: {
     addToCart: (state, action) => {
       const current = action.payload;
-      const newProducts = updateQuantity(state.products, current, "increase");
+      const newProducts = state.products.map((prod) =>
+        prod.id === current.id
+          ? {
+              ...prod,
+              quantity: prod.quantity + 1,
+              chosenRoast: current.chosenRoast,
+            }
+          : prod
+      );
       state.products = newProducts;
       console.log(state.products);
       // state.productsInCart = newProducts;

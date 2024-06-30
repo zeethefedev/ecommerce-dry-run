@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 
 function Select(props) {
-  const { options, label, onChange, name = "select" } = props;
+  const {
+    options,
+    label,
+    onChange,
+    name = "select",
+    error,
+    errorMessage,
+  } = props;
   const [labelFocused, setLabelFocus] = useState(false);
 
   const handleCloseLableFocus = (e) => {
@@ -34,6 +41,9 @@ function Select(props) {
           {label}
         </label>
       </div>
+      {error && (
+        <div className="text-right text-color-blue">{errorMessage}</div>
+      )}
     </div>
   );
 }

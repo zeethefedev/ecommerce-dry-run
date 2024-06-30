@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { PRODUCTS } from "../../utils/testdata";
 // import Search from "../generics/Search";
 import Filter from "../generics/Filter";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/cart.reducer";
 import ProductCard from "./ProductCard";
+import {
+  checkArrayIncludeText,
+  checkIncludeText,
+} from "../../utils/method.utils";
 
 const FILTERS = ["beans", "roast"];
 
@@ -39,17 +41,17 @@ function ProductList({ products = PRODUCTS }) {
 
   const handleFilter = () => {
     const filteredProducts = products.filter((prod) =>
-      ["name", "roast"].every((key) =>
-        prod[key]
-          .toLowerCase()
-          .includes(filterState[key === "name" ? "beans" : key])
-      )
+      ["name", "roast"].every((key) => {
+        const searchText = filterState[key === "name" ? "beans" : key];
+        return key === "name"
+          ? checkIncludeText(prod[key], searchText)
+          : checkArrayIncludeText(
+              prod.variants.map((variant) => variant.roast),
+              searchText
+            );
+      })
     );
     setProductsState(filteredProducts);
-  };
-  const dispatch = useDispatch();
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
   };
 
   return (
@@ -62,12 +64,7 @@ function ProductList({ products = PRODUCTS }) {
       />
       <div className="flex justify-center gap-4 flex-wrap">
         {productsState.map((prod) => (
-          <ProductCard
-            item={prod}
-            onClickButton={() => {
-              handleAddToCart(prod);
-            }}
-          />
+          <ProductCard item={prod} />
         ))}
       </div>
     </div>

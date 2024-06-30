@@ -14,7 +14,7 @@ function CartCard({ product, onIncrease, onDecrease, onRemove }) {
       <div>
         {/* <div>{product.displayName}</div> */}
         <div>{product.name}</div>
-        <div>{product.roast}</div>
+        <div>{product.chosenRoast}</div>
       </div>
       <div className="flex items-center">
         <Button

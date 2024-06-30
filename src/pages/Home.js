@@ -6,14 +6,11 @@ import {
   PRODUCTS,
   SAMPLE_TEXT,
 } from "../utils/testdata";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../store/cart.reducer";
 import PostCard from "../components/home/PostCard";
 import ProductCard from "../components/products/ProductCard";
 import SVGIcon from "../components/generics/SVGIcon";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/generics/Button";
-import CardTemplate from "../components/generics/CardTemplate";
 import ContactCard from "../components/home/ContactCard";
 
 function Home() {
@@ -63,13 +60,7 @@ function AboutSession() {
 
 function ProductSession({ products = PRODUCTS }) {
   const featureProducts = products.filter((prod) => prod.featureProduct);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-  };
-
   const handleNavigate = () => {
     navigate("/products");
   };
@@ -79,12 +70,7 @@ function ProductSession({ products = PRODUCTS }) {
       <h1 className="text-left">Our best sellers</h1>
       <div className="flex justify-center gap-4 flex-wrap">
         {featureProducts.map((prod) => (
-          <ProductCard
-            item={prod}
-            onClickButton={() => {
-              handleAddToCart(prod);
-            }}
-          />
+          <ProductCard item={prod} featureProducts />
         ))}
       </div>
       <Button onClick={handleNavigate}>See all products</Button>

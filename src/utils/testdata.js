@@ -5,12 +5,12 @@ export const ROAST = ["light", "medium", "dark"];
 export const PRODUCTS = [
   {
     id: 0,
-    stock: 88,
-    price: 11,
-    sale: 0,
     description: "A delicious coffee product with a rich flavor and aroma.",
     name: "Robusta",
-    roast: "dark",
+    variants: [
+      { roast: "light", stock: 88, price: 11, sale: 1 },
+      { roast: "medium", stock: 188, price: 112, sale: 10 },
+    ],
     displayName: "Coffee 2",
     featureProduct: true,
     thumbnail:
@@ -20,10 +20,11 @@ export const PRODUCTS = [
     id: 1,
     description: "A delicious coffee product with a rich flavor and aroma.",
     name: "Robusta",
-    stock: 98,
-    sale: 2,
-    roast: "dark",
-    price: 11,
+    variants: [
+      { roast: "light", stock: 98, price: 11, sale: 13 },
+      { roast: "medium", stock: 188, price: 112, sale: 1 },
+      { roast: "dark", stock: 188, price: 112, sale: 3 },
+    ],
     displayName: "Coffee 2 Robusta Son la",
     featureProduct: true,
     thumbnail:
@@ -31,13 +32,10 @@ export const PRODUCTS = [
   },
   {
     id: 2,
-    stock: 77,
     name: "Excelsa",
     description: "A delicious coffee product with a rich flavor and aroma.",
-    roast: "medium",
-    sale: 4,
+    variants: [{ roast: "light", stock: 77, price: 11, sale: 4 }],
     displayName: "Son La",
-    price: 11,
     featureProduct: false,
     thumbnail:
       "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Felias-sorey-D29l4vh2FZA-unsplash.jpg?alt=media&token=456df077-17b9-4eca-ba0c-fb5f0b0f1ae6",
@@ -45,10 +43,10 @@ export const PRODUCTS = [
   {
     id: 3,
     displayName: "Ethiopian",
-    roast: "medium",
-    sale: 3,
-    stock: 98,
-    price: 5,
+    variants: [
+      { roast: "medium", stock: 98, price: 5, sale: 3 },
+      { roast: "light", stock: 77, price: 11, sale: 4 },
+    ],
     name: "Liberica",
     description: "A delicious coffee product with a rich flavor and aroma.",
     featureProduct: true,
@@ -57,13 +55,13 @@ export const PRODUCTS = [
   },
   {
     id: 4,
-    roast: "dark",
-    sale: 2,
     name: "Excelsa",
-    price: 7,
+    variants: [
+      { roast: "light", stock: 21, price: 5, sale: 3 },
+      { roast: "dark", stock: 77, price: 11, sale: 4 },
+    ],
     description: "A delicious coffee product with a rich flavor and aroma.",
     displayName: "Kona",
-    stock: 21,
     featureProduct: false,
     thumbnail:
       "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Fmike-kenneally-TD4DBagg2wE-unsplash.jpg?alt=media&token=124a82ae-1f33-49db-bf78-16be633da9d2",
