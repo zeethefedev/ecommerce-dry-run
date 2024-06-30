@@ -4,14 +4,9 @@ function Input(props) {
   const {
     type = "text",
     value,
-    required = false,
-    name,
     label,
-    disabled,
-    placeholder,
     error,
     errorMessage = "Please fill in this form",
-    onChange,
   } = props;
 
   const [labelFocused, setLabelFocus] = useState(false);
@@ -22,14 +17,9 @@ function Input(props) {
           id="custom-input"
           className="input-field"
           type={type}
-          required={required}
-          name={name}
-          value={value}
-          disabled={disabled}
-          placeholder={placeholder}
           onFocus={() => setLabelFocus(true)}
           onBlur={() => setLabelFocus(false)}
-          onChange={onChange}
+          {...props}
         />
         <label
           className={`input-label capitalize ${

@@ -1,29 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CartCard from "../components/cart/CartCard";
-import {
-  decreaseProduct,
-  increaseProduct,
-  removeProduct,
-} from "../store/cart.reducer";
 import ContactForm from "../components/cart/ContactForm";
 import OrderSummary from "../components/cart/OrderSummary";
 import Button from "../components/generics/Button";
 
 function MyCart() {
-  const dispatch = useDispatch();
-  const productsInCart = useSelector((state) => state.cart.products);
-  // const productsInCart = products.filter((prod) => prod.quantity > 0);
-
-  const handleIncrease = (product) => {
-    dispatch(increaseProduct(product));
-  };
-  const handleDecrease = (product) => {
-    dispatch(decreaseProduct(product));
-  };
-  const handleRemove = (product) => {
-    dispatch(removeProduct(product));
-  };
+  const products = useSelector((state) => state.cart.products);
+  const productsInCart = products.filter((prod) => prod.chosen.quantity > 0);
 
   const [showContactForm, setShowContactForm] = useState(false);
   const handleShowContactForm = () => {
@@ -43,12 +27,7 @@ function MyCart() {
         ) : (
           <>
             {productsInCart.map((prod) => (
-              <CartCard
-                product={prod}
-                onIncrease={() => handleIncrease(prod)}
-                onDecrease={() => handleDecrease(prod)}
-                onRemove={() => handleRemove(prod)}
-              />
+              <CartCard product={prod} />
             ))}
           </>
         )}

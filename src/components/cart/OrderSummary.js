@@ -2,7 +2,8 @@ import React from "react";
 
 function OrderSummary({ customer, products }) {
   const totalPrice = products
-    .map((prod) => prod.price * prod.quantity)
+    .filter((prod) => prod.chosen.roast)
+    .map((prod) => prod.chosen.price * prod.chosen.quantity)
     .reduce((total, currentValue) => total + currentValue, 0);
 
   return (

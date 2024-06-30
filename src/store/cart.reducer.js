@@ -7,25 +7,18 @@ export const cartSlice = createSlice({
   initialState: {
     products: PRODUCTS.map((prod) => ({
       ...prod,
-      quantity: 0,
-      chosenRoast: "",
+      chosen: {},
     })),
     productsInCart: [],
   },
   reducers: {
     addToCart: (state, action) => {
       const current = action.payload;
+      const chosen = current.chosen;
       const newProducts = state.products.map((prod) =>
-        prod.id === current.id
-          ? {
-              ...prod,
-              quantity: prod.quantity + 1,
-              chosenRoast: current.chosenRoast,
-            }
-          : prod
+        prod.id === current.id ? { ...prod, chosen } : prod
       );
       state.products = newProducts;
-      console.log(state.products);
       // state.productsInCart = newProducts;
     },
     increaseProduct: (state, action) => {

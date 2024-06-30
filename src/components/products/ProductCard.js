@@ -5,6 +5,7 @@ import Button from "../generics/Button";
 import Select from "../generics/Select";
 import { addToCart } from "../../store/cart.reducer";
 import { useDispatch } from "react-redux";
+import Input from "../generics/Input";
 
 const toOptions = (optionsArray) => {
   return optionsArray.map((option) => ({
@@ -16,16 +17,24 @@ const toOptions = (optionsArray) => {
 function PopupContent({ item }) {
   const { displayName, description, variants, thumbnail } = item;
   const roast = variants.map((variant) => variant.roast);
-  const [chosenRoast, setChosenRoast] = useState("");
-  const handleChosenRoast = (e) => {
-    setChosenRoast(e.target.value);
+  const [chosen, setChosen] = useState({ roast: "", quantity: 0 });
+  const [current, setCurrent] = useState({});
+  const handleChosen = (e) => {
+    const newChosen = { ...chosen, [e.target.name]: e.target.value };
+    const newCurrent = item.variants.find(
+      (variant) => variant.roast === newChosen.roast
+    );
+    setChosen(newChosen);
+    setCurrent(newCurrent);
   };
 
   const dispatch = useDispatch();
   const handleAddToCart = () => {
-    if (!chosenRoast) {
+    if (!chosen.roast) {
     } else {
-      dispatch(addToCart({ ...item, chosenRoast }));
+      dispatch(
+        addToCart({ ...item, chosen: { ...chosen, price: current.price } })
+      );
     }
   };
 
@@ -39,10 +48,27 @@ function PopupContent({ item }) {
           label="roast"
           name="roast"
           options={toOptions(roast)}
-          onChange={handleChosenRoast}
-          error={!chosenRoast}
+          onChange={handleChosen}
+          error={!chosen.roast}
           errorMessage="Please chose a type"
         />
+        {current && (
+          <>
+            <Input
+              label="quantity"
+              type="number"
+              name="quantity"
+              value={chosen.quantity}
+              min="0"
+              max={current.stock}
+              onChange={handleChosen}
+              error={!chosen.quantity}
+              errorMessage="Please enter quantity"
+            />
+            <div>{current.stock}</div>
+            <div>{current.price}</div>
+          </>
+        )}
         <Button onClick={handleAddToCart} className="icon-button">
           <SVGIcon icon="plus" />
           Add to cart
@@ -71,7 +97,8 @@ function ProductCard({ item, featureProducts }) {
   const dispatch = useDispatch();
   const handleAddClick = () => {
     if (featureProducts) {
-      dispatch(addToCart({ ...item, chosenRoast: variantHighSale }));
+      const { roast, price } = variantHighSale;
+      dispatch(addToCart({ ...item, chosen: { roast, quantity: 1, price } }));
     } else {
       handleOpenPopup();
     }
