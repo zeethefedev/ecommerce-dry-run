@@ -144,3 +144,5 @@ export const CONTACTS = [
   { name: "Phone", description: "555-123-4567", link: "" },
   { name: "Location", description: "123 Main St, Anytown, CA 12345", link: "" },
 ];
+
+export const CUSTOMER = ["name", "address", "email", "note"];

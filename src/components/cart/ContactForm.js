@@ -1,21 +1,12 @@
 import React, { useState } from "react";
 import Input from "../generics/Input";
-import Button from "../generics/Button";
 import CardTemplate from "../generics/CardTemplate";
-
-const FIELDS = ["name", "address", "email", "note"];
-const toObject = (fieldArray) => {
-  const fieldsObject = fieldArray.map((key) => ({
-    name: key,
-    value: "",
-    touched: false,
-  }));
-
-  return fieldsObject;
-};
+import { useDispatch } from "react-redux";
+import { setCustomerContact } from "../../store/cart.reducer";
 
 function ContactForm({ customer }) {
-  const [contactFields, setContactFields] = useState(toObject(FIELDS));
+  const [contactFields, setContactFields] = useState(customer);
+  const dispatch = useDispatch();
   const handleInputChange = (e) => {
     const newFields = contactFields.map((field) =>
       field.name === e.target.name
@@ -23,26 +14,7 @@ function ContactForm({ customer }) {
         : field
     );
     setContactFields(newFields);
-  };
-
-  const handlePlaceOrder = (e) => {
-    e.preventDefault();
-    const newFields = contactFields.map((field) => ({
-      ...field,
-      touched: true,
-    }));
-    setContactFields(newFields);
-    const validForm = validateFields();
-    if (validForm) {
-      console.log("order placed");
-    } else {
-      console.log("try again");
-    }
-  };
-
-  const validateFields = () => {
-    const valid = contactFields.every((field) => field.value && field.touched);
-    return valid;
+    dispatch(setCustomerContact(newFields));
   };
 
   return (
@@ -59,9 +31,6 @@ function ContactForm({ customer }) {
             error={!field.value && field.touched}
           />
         ))}
-        <Button variant="primary" onClick={handlePlaceOrder}>
-          Place Order
-        </Button>
       </form>
     </CardTemplate>
   );

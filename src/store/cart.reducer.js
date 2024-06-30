@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PRODUCTS } from "../utils/testdata";
+import { CUSTOMER, PRODUCTS } from "../utils/testdata";
 import { updateQuantity } from "../utils/method.reducer";
 
 export const cartSlice = createSlice({
@@ -8,6 +8,11 @@ export const cartSlice = createSlice({
     products: PRODUCTS.map((prod) => ({
       ...prod,
       chosen: {},
+    })),
+    customer: CUSTOMER.map((key) => ({
+      name: key,
+      value: "",
+      touched: false,
     })),
     productsInCart: [],
   },
@@ -36,10 +41,19 @@ export const cartSlice = createSlice({
       const newProducts = updateQuantity(state.products, current, "remove");
       state.products = newProducts;
     },
+    setCustomerContact: (state, action) => {
+      const customer = action.payload;
+      state.customer = customer;
+    },
   },
 });
 
-export const { addToCart, increaseProduct, decreaseProduct, removeProduct } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  increaseProduct,
+  decreaseProduct,
+  removeProduct,
+  setCustomerContact,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
