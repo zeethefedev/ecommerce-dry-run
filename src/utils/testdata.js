@@ -151,8 +151,12 @@ export const CONTACTS = [
     description: "Tweet me on Twitter",
     link: "https://www.twitter.com/yourusername",
   },
-  { name: "Phone", description: "555-123-4567", link: "" },
-  { name: "Location", description: "123 Main St, Anytown, CA 12345", link: "" },
+  { name: "Phone", description: "555-123-4567", link: "tel:+4733378901" },
+  {
+    name: "Location",
+    description: "123 Main St, Anytown, CA 12345",
+    link: "https://maps.app.goo.gl/gr3VZT7CzCTVMA2J9",
+  },
 ];
 
 export const CUSTOMER = ["name", "address", "email", "note"];
