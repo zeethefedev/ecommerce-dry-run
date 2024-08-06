@@ -18,11 +18,14 @@ function PopUp(props) {
     <div>
       {open && (
         <div className="overlay-wrapper">
-          <div className="overlay">
-            <Button className="w-auto" onClick={handleClosePopup}>
+          <div className="overlay max-h-[80vh] overflow-scroll hide-scrollbar">
+            <Button
+              className="w-auto absolute top-11 right-11"
+              onClick={handleClosePopup}
+            >
               <SVGIcon icon="close" />
             </Button>
-            <div className="overlay-content">{children}</div>
+            <div className="overlay-content mt-12">{children}</div>
           </div>
         </div>
       )}

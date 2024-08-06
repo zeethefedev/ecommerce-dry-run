@@ -7,6 +7,7 @@ export const PRODUCTS = [
     id: 0,
     description: "A delicious coffee product with a rich flavor and aroma.",
     name: "Robusta",
+    origin: "Son La",
     variants: [
       { roast: "light", stock: 88, price: 11, sale: 1 },
       { roast: "medium", stock: 188, price: 112, sale: 10 },
@@ -20,6 +21,7 @@ export const PRODUCTS = [
     id: 1,
     description: "A delicious coffee product with a rich flavor and aroma.",
     name: "Robusta",
+    origin: "Kona",
     variants: [
       { roast: "light", stock: 98, price: 11, sale: 13 },
       { roast: "medium", stock: 188, price: 112, sale: 1 },
@@ -33,6 +35,7 @@ export const PRODUCTS = [
   {
     id: 2,
     name: "Excelsa",
+    origin: "Ethiopian",
     description: "A delicious coffee product with a rich flavor and aroma.",
     variants: [{ roast: "light", stock: 77, price: 11, sale: 4 }],
     displayName: "Son La",
@@ -43,6 +46,7 @@ export const PRODUCTS = [
   {
     id: 3,
     displayName: "Ethiopian",
+    origin: "Colombian",
     variants: [
       { roast: "medium", stock: 98, price: 5, sale: 3 },
       { roast: "light", stock: 77, price: 11, sale: 4 },
@@ -56,6 +60,7 @@ export const PRODUCTS = [
   {
     id: 4,
     name: "Excelsa",
+    origin: "Son La",
     variants: [
       { roast: "light", stock: 21, price: 5, sale: 3 },
       { roast: "dark", stock: 77, price: 11, sale: 4 },
@@ -67,10 +72,13 @@ export const PRODUCTS = [
       "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Fmike-kenneally-TD4DBagg2wE-unsplash.jpg?alt=media&token=124a82ae-1f33-49db-bf78-16be633da9d2",
   },
 ];
+
 export const POST_MAIN =
   "https://firebasestorage.googleapis.com/v0/b/fir-ecommerce-bbc24.appspot.com/o/products-images%2Fdang-cong-JqF4IS65xEg-unsplash.jpg?alt=media&token=35c1ffc6-5575-4db1-918c-9f6f639cb7e8";
+
 export const SAMPLE_TEXT =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat condimentum lacus, vel cursus nisl dapibus non. Aenean aliquam ligula non blandit elementum. Proin leo erat, eleifend nec posuere a, molestie id neque. Morbi placerat quam sed diam varius aliquet. Nam at arcu tempus, convallis urna sit amet, scelerisque urna. Aenean placerat arcu a metus semper tempor. Ut nec velit et odio tempor varius vitae ut dolor.";
+
 export const POSTS = [
   {
     id: 1,
@@ -91,6 +99,8 @@ In this post, we'll cover the basics of JavaScript, including variables, data ty
     preview:
       "Dive deeper into JavaScript and learn about advanced concepts like closures and the this keyword",
     content: `In this post, we'll explore some of the more advanced concepts in JavaScript, including closures, the this keyword, and prototype chains.
+
+We'll also cover some of the latest features in JavaScript, including async/await and destructuring. By the end of this post, you'll have a solid understanding of advanced JavaScript concepts and be ready to tackle more complex projects. In this post, we'll explore some of the more advanced concepts in JavaScript, including closures, the this keyword, and prototype chains.
 
 We'll also cover some of the latest features in JavaScript, including async/await and destructuring. By the end of this post, you'll have a solid understanding of advanced JavaScript concepts and be ready to tackle more complex projects.`,
     thumbnail:

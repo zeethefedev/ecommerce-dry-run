@@ -15,20 +15,34 @@ import ContactCard from "../components/home/ContactCard";
 
 function Home() {
   const location = useLocation();
+
   useEffect(() => {
     const hash = location.hash;
     if (hash) {
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) element.scrollIntoView({ behavior: "smooth" });
+      handleScrollIntoView(hash.replace("#", ""));
     }
   }, [location]);
+
+  const scrollToAbout = () => {
+    handleScrollIntoView("about");
+  };
+
+  const handleScrollIntoView = (id) => {
+    const element = document.getElementById(id);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       {/* landing */}
       <div className="min-h-screen">
         <h1 className="text-left max-w-3xl">Welcome to Ecommerce Dry Run</h1>
         {/* button scroll to the value session */}
-        <Button variant="primary" className="icon-button">
+        <Button
+          variant="primary"
+          className="icon-button"
+          onClick={scrollToAbout}
+        >
           Get to know us
           <SVGIcon icon="arrow-right" />
         </Button>
@@ -50,7 +64,7 @@ function Home() {
 function AboutSession() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 mb-16">
         <img src={POST_MAIN} alt="" />
         <div>
           <h2 className="text-right">Ecommerce Dry Run</h2>
