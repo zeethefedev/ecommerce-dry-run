@@ -61,7 +61,7 @@ function CartCard({ product }) {
 
   return (
     <CardTemplate
-      openPopup={openPopup}
+      open={openPopup}
       handleClosePopup={handleClosePopup}
       popupContent={
         <PopupContent

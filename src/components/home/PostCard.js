@@ -18,6 +18,7 @@ function PopupContent({ item }) {
 function PostCard({ item }) {
   const [openPopup, setOpenPopup] = useState(false);
   const [current, setCurrent] = useState();
+
   const handleOpenPopup = () => {
     setOpenPopup(true);
     setCurrent(item);
@@ -28,7 +29,7 @@ function PostCard({ item }) {
   };
   return (
     <CardTemplate
-      openPopup={openPopup}
+      open={openPopup}
       handleClosePopup={handleClosePopup}
       popupContent={<PopupContent item={current} />}
       cardClass="flex flex-col justify-between"

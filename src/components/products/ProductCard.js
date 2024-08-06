@@ -85,6 +85,7 @@ function ProductCard({ item, featureProducts }) {
   const variantHighSale = item.variants.find(
     (variant) => variant.sale === highSale
   );
+
   const handleOpenPopup = () => {
     setOpenPopup(true);
     setCurrent(item);
@@ -106,7 +107,7 @@ function ProductCard({ item, featureProducts }) {
 
   return (
     <CardTemplate
-      openPopup={openPopup}
+      open={openPopup}
       handleClosePopup={handleClosePopup}
       popupContent={<PopupContent item={current} />}
     >

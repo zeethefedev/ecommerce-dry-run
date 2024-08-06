@@ -7,7 +7,7 @@ function CardTemplate(props) {
     children,
     cardClass,
     direction = "col",
-    openPopup,
+    open,
     popupContent,
     handleClosePopup,
   } = props;
@@ -19,7 +19,7 @@ function CardTemplate(props) {
         {children}
       </div>
       {popupContent && (
-        <PopUp open={openPopup} handleClosePopup={handleClosePopup}>
+        <PopUp open={open} handleClosePopup={handleClosePopup}>
           {popupContent}
         </PopUp>
       )}
