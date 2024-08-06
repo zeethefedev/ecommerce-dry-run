@@ -27,9 +27,13 @@ function ProductList({ products = PRODUCTS }) {
     setProductsState(filteredProducts);
   };
 
+  const resetFilter = () => {
+    setProductsState(products);
+  };
+
   return (
     <div>
-      <Filter filter={FILTERS} onFilter={handleFilter} />
+      <Filter filter={FILTERS} onFilter={handleFilter} reset={resetFilter} />
       <div className="flex justify-center gap-4 flex-wrap">
         {productsState.map((prod) => (
           <ProductCard item={prod} />

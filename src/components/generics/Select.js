@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function Select(props) {
   const {
     options,
+    value,
     label,
     onChange,
     name = "select",
@@ -18,7 +19,7 @@ function Select(props) {
   };
 
   return (
-    <div className="m-4 max-w-64 flex flex-col">
+    <div className="my-4 max-w-64 flex flex-col">
       <div className="input-container w-full flex rounded">
         <select
           className="input-field"
@@ -26,6 +27,7 @@ function Select(props) {
           onFocus={() => setLabelFocus(true)}
           onBlur={handleCloseLableFocus}
           onChange={onChange}
+          value={value}
         >
           <>
             <option value=""></option>
