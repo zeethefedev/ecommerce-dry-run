@@ -69,6 +69,7 @@ function AboutSession() {
 function ProductSession({ products = PRODUCTS }) {
   const featureProducts = products.filter((prod) => prod.featureProduct);
   const navigate = useNavigate();
+
   const handleNavigate = () => {
     navigate("/products");
   };

@@ -53,11 +53,7 @@ function MyCart() {
         {showContactForm ? (
           <ContactForm customer={customer} />
         ) : (
-          <>
-            {productsInCart.map((prod) => (
-              <CartCard product={prod} />
-            ))}
-          </>
+          productsInCart.map((prod) => <CartCard product={prod} />)
         )}
       </div>
       <div className="card-light flex flex-col items-center justify-between gap-2 px-5 py-6 h-[60vh]">
