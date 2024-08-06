@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "./Select";
 import * as DATA from "../../utils/testdata";
 import Button from "./Button";
@@ -10,20 +10,37 @@ const toOptions = (optionsArray) => {
   }));
 };
 
+const toFilterObject = (filterArray) => {
+  let filters = {};
+  filterArray.forEach((key) => {
+    filters[key] = "";
+  });
+
+  return filters;
+};
+
 function Filter(props) {
-  const { filter, onFilterStateChange, onFilter } = props;
+  const { filter, onFilter } = props;
+
+  const [filterState, setFilterState] = useState(toFilterObject(filter));
+
+  const handleFilterStateChange = (e) => {
+    const filterKey = e.target.name;
+    const filterValue = e.target.value;
+    setFilterState({ ...filterState, [filterKey]: filterValue });
+  };
 
   return (
     <div>
-      {Object.keys(filter).map((type) => (
+      {Object.keys(filterState).map((type) => (
         <Select
           label={type}
           name={type}
           options={toOptions(DATA[type.toUpperCase()])}
-          onChange={onFilterStateChange}
+          onChange={handleFilterStateChange}
         />
       ))}
-      <Button onClick={onFilter}>Search</Button>
+      <Button onClick={() => onFilter(filterState)}>Search</Button>
     </div>
   );
 }
