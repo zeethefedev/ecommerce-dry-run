@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../generics/Input";
 import CardTemplate from "../generics/CardTemplate";
 import { useDispatch } from "react-redux";
 import { setCustomerContact } from "../../store/cart.reducer";
 
 function ContactForm({ customer }) {
-  const [contactFields, setContactFields] = useState(customer);
   const dispatch = useDispatch();
   const handleInputChange = (e) => {
-    const newFields = contactFields.map((field) =>
+    const newFields = customer.map((field) =>
       field.name === e.target.name
         ? { ...field, value: e.target.value, touched: true }
         : field
     );
-    setContactFields(newFields);
     dispatch(setCustomerContact(newFields));
   };
 
@@ -21,7 +19,7 @@ function ContactForm({ customer }) {
     <CardTemplate cardClass="max-w-none">
       <h3 className="text-left">Payment</h3>
       <form>
-        {contactFields.map((field) => (
+        {customer.map((field) => (
           <Input
             label={field.name}
             name={field.name}
