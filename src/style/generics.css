@@ -45,11 +45,11 @@
 
 .overlay-content {
   position: relative;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  align-items: center;
-  flex-direction: column;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* height: 100%; */
+  /* align-items: center; */
+  /* flex-direction: column; */
 }
 
 .clickable {

@@ -221,3 +221,7 @@ h3 {
   transform: translateY(-20px) scale(0.9);
   color: #333;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
