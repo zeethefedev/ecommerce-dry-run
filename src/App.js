@@ -4,8 +4,16 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import MyCart from "./pages/MyCart";
 import Navbar from "./components/Navbar";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCart } from "./store/cart.reducer";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setCart());
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
