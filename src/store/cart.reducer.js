@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CUSTOMER, PRODUCTS } from "../utils/testdata";
-import { updateQuantity } from "../utils/method.reducer";
-import { getFromStorage, saveToStorage } from "../utils/method.utils";
+import { saveProductsToStorage, updateQuantity } from "../utils/method.reducer";
+import { getFromStorage } from "../utils/method.utils";
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -29,25 +29,25 @@ export const cartSlice = createSlice({
         prod.id === current.id ? { ...prod, chosen } : prod
       );
       state.products = newProducts;
-      saveToStorage("PRODUCTS", state.products);
+      saveProductsToStorage(state.products);
     },
     increaseProduct: (state, action) => {
       const current = action.payload;
       const newProducts = updateQuantity(state.products, current, "increase");
       state.products = newProducts;
-      saveToStorage("PRODUCTS", state.products);
+      saveProductsToStorage(state.products);
     },
     decreaseProduct: (state, action) => {
       const current = action.payload;
       const newProducts = updateQuantity(state.products, current, "decrease");
       state.products = newProducts;
-      saveToStorage("PRODUCTS", state.products);
+      saveProductsToStorage(state.products);
     },
     removeProduct: (state, action) => {
       const current = action.payload;
       const newProducts = updateQuantity(state.products, current, "remove");
       state.products = newProducts;
-      saveToStorage("PRODUCTS", state.products);
+      saveProductsToStorage(state.products);
     },
     setCustomerContact: (state, action) => {
       const customer = action.payload;

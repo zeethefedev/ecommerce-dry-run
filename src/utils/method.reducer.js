@@ -1,3 +1,5 @@
+import { saveToStorage } from "./method.utils";
+
 export const updateQuantity = (products, currentProduct, quantityChange) => {
   switch (quantityChange) {
     case "increase":
@@ -26,4 +28,16 @@ export const updateQuantity = (products, currentProduct, quantityChange) => {
     default:
       break;
   }
+};
+
+export const getProductsInCart = (products) => {
+  return products.filter((prod) => prod.chosen.quantity > 0);
+};
+
+export const saveProductsToStorage = (products) => {
+  saveToStorage("PRODUCTS", products);
+};
+
+export const saveUserToStorage = (user) => {
+  saveToStorage("USER", user);
 };
