@@ -7,13 +7,6 @@ import { addToCart } from "../../store/cart.reducer";
 import { useDispatch } from "react-redux";
 import Input from "../generics/Input";
 
-const toOptions = (optionsArray) => {
-  return optionsArray.map((option) => ({
-    name: option.toLowerCase(),
-    displayName: option,
-  }));
-};
-
 function PopupContent({ item }) {
   const { displayName, description, origin, variants, thumbnail } = item;
   const roast = variants.map((variant) => variant.roast);
@@ -59,7 +52,7 @@ function PopupContent({ item }) {
         <Select
           label="roast"
           name="roast"
-          options={toOptions(roast)}
+          options={roast}
           onChange={handleChosen}
           error={!chosen.roast}
           errorMessage="Please chose a type"

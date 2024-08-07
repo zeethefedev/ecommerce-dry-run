@@ -25,3 +25,17 @@ export const getFromStorage = (key) => {
 export const saveToStorage = (key, item) => {
   window.sessionStorage.setItem(key, JSON.stringify(item));
 };
+
+const FILTERS = ["name", "origin", "roast"];
+export const getFilterFromProducts = (products) => {
+  const filterData = {};
+  FILTERS.forEach((filter) => {
+    if (filter !== "roast") {
+      filterData[filter] = products.map((prod) => prod[filter]);
+    } else {
+      filterData.roast = ["light", "medium", "dark"];
+    }
+  });
+
+  return filterData;
+};

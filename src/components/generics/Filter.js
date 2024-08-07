@@ -1,28 +1,19 @@
 import React, { useState } from "react";
 import Select from "./Select";
-import * as DATA from "../../utils/testdata";
 import Button from "./Button";
 
-const toOptions = (optionsArray) => {
-  return optionsArray.map((option) => ({
-    name: option.toLowerCase(),
-    displayName: option,
-  }));
-};
-
-const toFilterObject = (filterArray) => {
+const toFilterState = (filterObject) => {
   let filters = {};
-  filterArray.forEach((key) => {
+  Object.keys(filterObject).forEach((key) => {
     filters[key] = "";
   });
-
   return filters;
 };
 
 function Filter(props) {
   const { filter, onFilter, reset } = props;
 
-  const [filterState, setFilterState] = useState(toFilterObject(filter));
+  const [filterState, setFilterState] = useState(toFilterState(filter));
 
   const handleFilterStateChange = (e) => {
     const filterKey = e.target.name;
@@ -40,14 +31,13 @@ function Filter(props) {
   };
 
   const disabledFilter = Object.values(filterState).every((value) => !value);
-
   return (
     <div>
       {Object.entries(filterState).map(([type, value]) => (
         <Select
           label={type}
           name={type}
-          options={toOptions(DATA[type.toUpperCase()])}
+          options={filter[type]}
           onChange={handleFilterStateChange}
           value={value}
         />

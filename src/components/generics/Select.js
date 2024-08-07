@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+const toOptionName = (option) => {
+  return option.toLowerCase().replace(/ /g, "-");
+};
+
 function Select(props) {
   const {
     options,
@@ -32,7 +36,7 @@ function Select(props) {
           <>
             <option value=""></option>
             {options.map((option) => (
-              <option value={option.name}>{option.displayName}</option>
+              <option value={toOptionName(option)}>{option}</option>
             ))}
           </>
         </select>

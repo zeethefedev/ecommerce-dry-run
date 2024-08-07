@@ -5,17 +5,18 @@ import ProductCard from "./ProductCard";
 import {
   checkArrayIncludeText,
   checkIncludeText,
+  getFilterFromProducts,
 } from "../../utils/method.utils";
 
-const FILTERS = ["beans", "roast"];
+const filters = getFilterFromProducts(PRODUCTS);
 
 function ProductList({ products = PRODUCTS }) {
   const [productsState, setProductsState] = useState(products);
 
   const handleFilter = (filter) => {
     const filteredProducts = products.filter((prod) =>
-      ["name", "roast"].every((key) => {
-        const searchText = filter[key === "name" ? "beans" : key];
+      Object.keys(filters).every((key) => {
+        const searchText = filter[key];
         return key === "name"
           ? checkIncludeText(prod[key], searchText)
           : checkArrayIncludeText(
@@ -33,7 +34,7 @@ function ProductList({ products = PRODUCTS }) {
 
   return (
     <div>
-      <Filter filter={FILTERS} onFilter={handleFilter} reset={resetFilter} />
+      <Filter filter={filters} onFilter={handleFilter} reset={resetFilter} />
       <div className="flex justify-center gap-4 flex-wrap">
         {productsState.map((prod) => (
           <ProductCard item={prod} />
